@@ -75,22 +75,35 @@ table tr td:first-child, table tr th:first-child {
   text-align: right;
 }
 
-.up,
-.down {
+.up, .down{
   display: block;
   font-size: 10px;
   transform: scaleY(0.9);
+}
+
+.tableHeader {
+  position: relative
+}
+.tableHeader .up, .tableHeader .down{
+  position: absolute;
+  top:3px;
+  right: -15px;
+  color:#ECB02B;
+}
+
+.initial .up,
+.initial .down {
   position: absolute;
   top:0;
   right: -15px
 }
 
-.up {
+.initial .up {
   color: #8cc7d5;
   padding-top: 2px;
 }
 
-.down {
+.initial .down {
   color: #ef565d;
   padding-top: 4px;
 }

@@ -11,6 +11,10 @@
   padding: 1.5rem 3rem;
   font-size: 20px;
 }
+.navMenu header a{
+  color: white;
+  text-decoration: none;
+}
 
 .navMenu ul{
   color: #89929D;

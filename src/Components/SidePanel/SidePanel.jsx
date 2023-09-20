@@ -9,26 +9,17 @@ function SidePanel() {
   const [currentTransaction, setCurrentTransaction] = useState(null)
 
   useEffect(() => {
-    if (selectedTransactions.length === 1) setCurrentTransaction(transactionsData.filter((item) => item.id === selectedTransactions[0])[0])
+    if (selectedTransactions.length === 1) {
+      setCurrentTransaction(transactionsData.filter((item) => item.id === selectedTransactions[0])[0])
+    }
   }, [selectedTransactions])
 
-  if (currentTransaction !== null) {
-    return (
-      <section className="sidePanel">
-        <header></header>
-        <div className="seeDetails">{selectedTransactions.length !== 0 ? selectedTransactions.length === 1 ? <TransactionDetails transaction={currentTransaction} /> : <p>You have selectionned transactions : {selectedTransactions.join(', ')} </p> : <p>Click on one or several transactions to see details</p>}</div>
-      </section>
-    )
-  } else {
-    return (
-      <section className="sidePanel">
-        <header></header>
-        <div className="seeDetails">
-          <p>Click on one or several transactions to see details</p>
-        </div>
-      </section>
-    )
-  }
+  return (
+    <section className="sidePanel">
+      <header></header>
+      <div className="seeDetails">{currentTransaction !== null ? selectedTransactions.length === 1 ? <TransactionDetails transaction={currentTransaction} /> : <p>You have selected transactions: {selectedTransactions.join(', ')}</p> : <p>Click on one or several transactions to see details</p>}</div>
+    </section>
+  )
 }
 
 export default SidePanel
