@@ -1,0 +1,110 @@
+.transactionsView {
+  flex: 1;
+  background-color: #fcfcfc;
+}
+
+.transactionsView header {
+  background-color: #ecaf2e;
+  height: 71.5px;
+}
+
+.transactionsView .tableContainer {
+  display: flex;
+  justify-content: center;
+  height: 690px;
+  overflow: scroll;
+  margin-top: 50px;
+}
+
+.transactionsView .tableContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tableContainer table{
+  border-collapse: collapse;
+}
+
+.tableContainer th,
+.tableContainer td {
+  padding: 1.5rem 1.5rem;
+  text-align: right;
+  vertical-align: middle;
+}
+
+table tr td:first-child, table tr th:first-child {
+  padding-left: 0;
+}
+
+.tableContainer .unseenRow{
+  font-weight: 500;
+}
+
+.tableContainer th{
+  font-weight: 400;
+}
+
+.tableContainer tr {
+  border-top: 1px solid #E7E7E7;
+  cursor: pointer;
+}
+.tableContainer thead tr:first-child{
+  border-top: none;
+  border-bottom: 1px solid #8E8E8E;
+}
+
+
+.tableContainer .amount {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.tableContainer .amount p {
+  margin: 0;
+}
+
+.tableContainer .initial{
+  position: relative;
+  font-weight: 500;
+}
+
+.tableContainer .converted {
+  font-size: 14px;
+  color: #b6b6b6;
+  text-align: right;
+}
+
+.up,
+.down {
+  display: block;
+  font-size: 10px;
+  transform: scaleY(0.9);
+  position: absolute;
+  top:0;
+  right: -15px
+}
+
+.up {
+  color: #8cc7d5;
+  padding-top: 2px;
+}
+
+.down {
+  color: #ef565d;
+  padding-top: 4px;
+}
+
+.link {
+  transform: rotateZ(-95deg) rotateY(180deg);
+  color: #aaaaaa;
+  cursor: pointer;
+}
+
+.attachmentLink{
+  position: relative;
+}
+.attachmentNumber{
+  position:absolute;
+  right:-15px
+}

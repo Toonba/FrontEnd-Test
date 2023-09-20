@@ -1,0 +1,56 @@
+.navMenu{
+  width: 16vw;
+  height: 100vh;
+  background-color: #3D4751;
+}
+
+.navMenu header{
+  background-color: #353D46;
+  color: white;
+  font-weight: 700;
+  padding: 1.5rem 3rem;
+  font-size: 20px;
+}
+
+.navMenu ul{
+  color: #89929D;
+  list-style: none;
+  padding: 1.5rem 3rem;
+  margin: 0;
+  border-bottom: 2px solid #48515D;
+  font-size: 14px;
+}
+
+.navMenu ul:last-child{
+  border-bottom: none;
+}
+
+.navMenu li{
+  margin: 0.8rem 0;
+  cursor: pointer;
+}
+
+.navMenu li span{
+  margin-left: 0.2rem;
+}
+
+button{
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid #91C4CE;
+  color: #91C4CE;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover{
+  background-color: #91c4ce5b;
+}
+
+button:active{
+  transform: scale(0.95);
+}

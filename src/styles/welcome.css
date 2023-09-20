@@ -1,0 +1,19 @@
+.welcome{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome header{
+  height: 71.5px;
+  background-color: #ECAF2E;
+}
+
+.welcome div{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+

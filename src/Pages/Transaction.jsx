@@ -1,8 +1,14 @@
+import NavMenu from '../Components/NavMenu/NavMenu'
+import SidePanel from '../Components/SidePanel/SidePanel'
+import TransactionsView from '../Components/TransactionsView/TransactionsView'
 
-
-function Transactions(){
+function Transactions() {
   return (
-    <div>Hello World Transaction Page</div>
+    <>
+      <NavMenu />
+      <TransactionsView />
+      <SidePanel />
+    </>
   )
 }
 

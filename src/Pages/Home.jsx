@@ -1,8 +1,15 @@
+import NavMenu from '../Components/NavMenu/NavMenu'
+import SidePanel from '../Components/SidePanel/SidePanel'
+import Welcome from '../Components/Welcome/Welcome'
 
 
 function Home(){
   return (
-    <div>Hello World Home Page</div>
+    <>
+      <NavMenu/>
+      <Welcome/>
+      <SidePanel/>
+    </>
   )
 }
 

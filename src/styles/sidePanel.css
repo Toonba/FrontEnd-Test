@@ -1,0 +1,27 @@
+.sidePanel{
+  height: 100vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidePanel header{
+background-color: #F6F6F6;
+height: 71.5px;
+}
+
+.sidePanel .seeDetails{
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex:1
+}
+
+.seeDetails p{
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  color: #A5A5A5;
+  font-size: 14px;
+}
