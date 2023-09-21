@@ -1,60 +1,71 @@
-.navMenu{
-  width: 16vw;
-  height: 100vh;
-  background-color: #3D4751;
+.navMenu {
+  width: 16%;
+  min-height: 100vh;
+  background-color: #3d4751;
 }
 
-.navMenu header{
-  background-color: #353D46;
+.navMenu header {
+  background-color: #353d46;
   color: white;
   font-weight: 700;
   padding: 1.5rem 3rem;
   font-size: 20px;
+  font-family: 'IBM Plex Mono', monospace;
 }
-.navMenu header a{
+.navMenu header a {
   color: white;
   text-decoration: none;
 }
 
-.navMenu ul{
-  color: #89929D;
+.navMenu ul {
+  color: #89929d;
   list-style: none;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 1rem 1.5rem 3vw;
   margin: 0;
-  border-bottom: 2px solid #48515D;
+  border-bottom: 2px solid #48515d;
   font-size: 14px;
 }
 
-.navMenu ul:last-child{
+.navMenu ul:last-child {
   border-bottom: none;
 }
 
-.navMenu li{
+.navMenu li {
   margin: 0.8rem 0;
   cursor: pointer;
 }
 
-.navMenu li span{
+.navMenu li span {
   margin-left: 0.2rem;
 }
 
-button{
+button {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5vw;
   margin: 0 auto;
   background-color: transparent;
-  border: 1px solid #91C4CE;
-  color: #91C4CE;
+  border: 1px solid #91c4ce;
+  color: #91c4ce;
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-button:hover{
+button:hover {
   background-color: #91c4ce5b;
 }
 
-button:active{
+button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 1280px) {
+  .navMenu ul {
+    font-size: 10px;
+    padding: 1.5rem 1rem 1.5rem 3vw;
+  }
+  button {
+    font-size: 10px;
+  }
 }

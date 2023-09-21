@@ -12,12 +12,12 @@ function SidePanel() {
     if (selectedTransactions.length === 1) {
       setCurrentTransaction(transactionsData.filter((item) => item.id === selectedTransactions[0])[0])
     }
-  }, [selectedTransactions])
+  }, [selectedTransactions, transactionsData])
 
   return (
     <section className="sidePanel">
       <header></header>
-      <div className="seeDetails">{currentTransaction !== null ? selectedTransactions.length === 1 ? <TransactionDetails transaction={currentTransaction} /> : <p>You have selected transactions: {selectedTransactions.join(', ')}</p> : <p>Click on one or several transactions to see details</p>}</div>
+      <div className="seeDetails">{currentTransaction !== null ? selectedTransactions.length === 1 ? <TransactionDetails transaction={currentTransaction} /> : <p>IDs of selected transactions are : {selectedTransactions.join(', ')}</p> : <p>Click on one or several transactions to see details</p>}</div>
     </section>
   )
 }

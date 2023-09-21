@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { selectOneTransaction, selectSeveralTransactions } from '../../store/store'
 import { formatAmount, formatDate, formatPurchaseType, convertToGbp } from '../../service/service'
 import { useState } from 'react'
@@ -7,21 +7,39 @@ function TransactionsTable({ transactionsList }) {
   // Hard coded this unseen variable to be able to reproduce mock given but could be retrieve as props or from store with redux to addap with the real number of unseen transaction at any time
   const unseen = 3
 
-  // Store with redux which rows has been selected
+  // Store with redux which rows has been selected either by finding index of first selected row and current row when using shift key or simply by finding current id when only one is selected
   const dispatch = useDispatch()
+
+  let firstSelectedRowId = null
 
   function handleSelectedRow(event, transactionId) {
     const { shiftKey } = event
 
     if (shiftKey) {
-      dispatch(selectSeveralTransactions(transactionId))
+      if (firstSelectedRowId === null) {
+        firstSelectedRowId = transactionId
+      } else {
+        const currentIndex = sortedTransactions.findIndex((transaction) => transaction.id === transactionId)
+        const firstSelectedIndex = sortedTransactions.findIndex((transaction) => transaction.id === firstSelectedRowId)
+
+        if (currentIndex !== -1 && firstSelectedIndex !== -1) {
+          const startIndex = Math.min(currentIndex, firstSelectedIndex)
+          const endIndex = Math.max(currentIndex, firstSelectedIndex)
+          const selectedTransactions = sortedTransactions.slice(startIndex, endIndex + 1)
+
+          const selectedTransactionIds = selectedTransactions.map((transaction) => transaction.id)
+
+          dispatch(selectSeveralTransactions(selectedTransactionIds))
+        }
+      }
     } else {
+      console.log(transactionId)
       dispatch(selectOneTransaction(transactionId))
+      firstSelectedRowId = null
     }
   }
-  console.log(transactionsList)
 
-  //handle Sorting
+  //manage sorting by implementing ascending, descending and no-order sorting, also storing which columns is currently sorted
   const [sortedTransactions, setSortedTransactions] = useState([...transactionsList])
   const [sort, setSort] = useState('no')
   const [currentSort, setCurrentSort] = useState('no')
@@ -65,44 +83,30 @@ function TransactionsTable({ transactionsList }) {
       }
     }
   }
+  
+  const tableHeader = [
+    {properties: 'created_at', label:'DD-MM-YYYY'},
+    {properties: 'counterparty_name', label:'Counterparty Name'},
+    {properties: 'operation_type', label:'Payment Type'},
+    {properties: 'amount', label:'Amount'},
+    {properties: 'attachements', label:<i className="fa-solid fa-paperclip link"></i>},
+]
 
   return (
     <div className="tableContainer">
       <table>
         <thead>
           <tr>
-            <th onClick={() => sortTable('created_at')}>
-              <div className="tableHeader">
-                <p>DD-MM-YYYY</p>
-                {currentSort === 'created_at' ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
+            {tableHeader.map((item)=>{
+              return (
+                <th onClick={() => sortTable(item.properties)} key={`${item.properties}`}>
+                <div className="tableHeader">
+                <p>{item.label}</p>
+                {currentSort === item.properties ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
               </div>
-            </th>
-            <th onClick={() => sortTable('counterparty_name')}>
-              <div className="tableHeader">
-                <p>Counterparty Name</p>
-                {currentSort === 'counterparty_name' ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
-              </div>
-            </th>
-            <th onClick={() => sortTable('operation_type')}>
-              <div className="tableHeader">
-                <p>Payment Type</p>
-                {currentSort === 'operation_type' ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
-              </div>
-            </th>
-            <th onClick={() => sortTable('amount')}>
-              <div className="tableHeader">
-                <p>Amount</p>
-                {currentSort === 'amount' ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
-              </div>
-            </th>
-            <th onClick={() => sortTable('attachements')}>
-              <div className="tableHeader">
-                <p>
-                  <i className="fa-solid fa-paperclip link"></i>
-                </p>
-                {currentSort === 'attachements' ? sort === 'no' ? null : sort === 'down' ? <span className="down">&#9660;</span> : <span className="up">&#9650;</span> : null}
-              </div>
-            </th>
+              </th>
+              )
+            })}
           </tr>
         </thead>
         <tbody>

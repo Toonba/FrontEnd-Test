@@ -24,13 +24,7 @@ const reducer = (state = initialState, action) =>{
         draft.transactionsSelected = [action.payload];
         break
         case SELECT_SEVERAL_TRANSACTIONS:
-          const transactionId = action.payload;
-          const index = draft.transactionsSelected.indexOf(transactionId);
-          if (index === -1) {
-            draft.transactionsSelected.push(transactionId);
-          } else {
-            draft.transactionsSelected.splice(index, 1);
-          }
+          draft.transactionsSelected = action.payload;
           break;
       default:
         return state

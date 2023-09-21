@@ -4,6 +4,10 @@ function TransactionDetails({ transaction }) {
   return (
     <div className="transactionDetails">
       <p>
+        Transaction ID:
+        <span>{transaction.id}</span>
+      </p>
+      <p>
         Transaction date:
         <span>{formatDate(transaction.created_at)}</span>
       </p>

@@ -1,6 +1,7 @@
 .transactionsView {
   flex: 1;
   background-color: #fcfcfc;
+  font-size: 14px
 }
 
 .transactionsView header {
@@ -11,8 +12,6 @@
 .transactionsView .tableContainer {
   display: flex;
   justify-content: center;
-  height: 690px;
-  overflow: scroll;
   margin-top: 50px;
 }
 
@@ -20,38 +19,42 @@
   display: none;
 }
 
-.tableContainer table{
+.tableContainer table {
   border-collapse: collapse;
 }
 
 .tableContainer th,
 .tableContainer td {
-  padding: 1.5rem 1.5rem;
+  padding: 1.5vh 1.5vw;
   text-align: right;
   vertical-align: middle;
 }
 
-table tr td:first-child, table tr th:first-child {
+.tableContainer th p {
+  margin: 0;
+}
+
+table tr td:first-child,
+table tr th:first-child {
   padding-left: 0;
 }
 
-.tableContainer .unseenRow{
+.tableContainer .unseenRow {
   font-weight: 500;
 }
 
-.tableContainer th{
+.tableContainer th {
   font-weight: 400;
 }
 
 .tableContainer tr {
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid #e7e7e7;
   cursor: pointer;
 }
-.tableContainer thead tr:first-child{
+.tableContainer thead tr:first-child {
   border-top: none;
-  border-bottom: 1px solid #8E8E8E;
+  border-bottom: 1px solid #8e8e8e;
 }
-
 
 .tableContainer .amount {
   display: flex;
@@ -64,38 +67,40 @@ table tr td:first-child, table tr th:first-child {
   margin: 0;
 }
 
-.tableContainer .initial{
+.tableContainer .initial {
   position: relative;
   font-weight: 500;
 }
 
 .tableContainer .converted {
-  font-size: 14px;
+  font-size: 12px;
   color: #b6b6b6;
   text-align: right;
 }
 
-.up, .down{
+.up,
+.down {
   display: block;
   font-size: 10px;
   transform: scaleY(0.9);
 }
 
 .tableHeader {
-  position: relative
+  position: relative;
 }
-.tableHeader .up, .tableHeader .down{
+.tableHeader .up,
+.tableHeader .down {
   position: absolute;
-  top:3px;
+  top: 3px;
   right: -15px;
-  color:#ECB02B;
+  color: #ecb02b;
 }
 
 .initial .up,
 .initial .down {
   position: absolute;
-  top:0;
-  right: -15px
+  top: 0;
+  right: -15px;
 }
 
 .initial .up {
@@ -114,10 +119,20 @@ table tr td:first-child, table tr th:first-child {
   cursor: pointer;
 }
 
-.attachmentLink{
+.attachmentLink {
   position: relative;
 }
-.attachmentNumber{
-  position:absolute;
-  right:-15px
+.attachmentNumber {
+  position: absolute;
+  right: -15px;
+}
+
+
+@media (max-width: 1280px){
+  .transactionsView{
+    font-size: 12px;
+  }
+  .tableContainer .converted{
+    font-size: 10px;
+  }
 }

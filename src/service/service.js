@@ -23,3 +23,4 @@ export const formatAmount = (initialAmount) => {
 export const convertToGbp = (priceEur) => {
   return (priceEur * 0.86).toFixed(2)
 }
+
