@@ -28,7 +28,7 @@ function TransactionsView() {
   // }, [])
 
   //fetching data from  http://private-3f9656-paymiuminterviews.apiary-mock.com/transactions give the same error as the request above : Access to fetch at 'http://polls.apiblueprint.org/transactions' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
-  //From my understanding I can solve this locally with a chrome plugin but it will only solve it on my computer, I could use a proxy, but it's seems out of scope for this test, I can ask you to modifie your API . I send an email to Dominique to get further help.
+  //From my understanding I can solve this locally with a chrome plugin but it will only solve it on my computer, I could use a proxy, but it's seems out of scope for this test, I can ask you to modifie your API . I send an email to Dominique to get further help
   //At the moment to solve this I created a mock of transactions at '../../Data/Data' and I updated data with this mock when catching error on fetch
 
   useEffect(() => {
