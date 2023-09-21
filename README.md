@@ -11,10 +11,14 @@ Project represent a list of transactions in the form of a table where each colum
 Follow these step to install and run this project
 
 1- Clone this repository
-`git clone https://github.com/Toonba/FrontEnd-Test.git`
+```
+git clone https://github.com/Toonba/FrontEnd-Test.git
+```
 
 2- Navigate to the project directory
-`cd FrontEnd-Test`
+```
+cd FrontEnd-Test
+```
 
 3- Install dependencies using npm or yarn
 
@@ -25,7 +29,9 @@ yarn install
 ```
 
 4- run this project
-`npm start`
+```
+npm start
+```
 
 ## Usage
 
